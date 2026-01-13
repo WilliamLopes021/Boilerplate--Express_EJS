@@ -1,0 +1,21 @@
+<%- include('includes/head') %>
+  <body>
+    <section class="container">
+      <h1>
+        <!-- Esta tag com '=' renderiza somente texto, não executa. Se fosse <%- %> algo aqui dentro seria executado-->
+        <%= title %>
+      </h1>
+      <h2>
+        <% nomes.forEach(nome => { %>
+          
+          <p><%= nome %></p>
+        <% }); %>
+      </h2>
+      <form action="/" method="post">
+        <input type="hidden" name="_csrf" value="<%= csrfToken %>"> <!--Criando o token CSRF para o form-->
+        <label for="">Nome</label>
+        <input type="text" name="name" />
+      </form>
+    </section>
+
+<%- include('includes/footer') %>
